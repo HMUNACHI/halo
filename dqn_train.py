@@ -13,50 +13,11 @@ from google.colab import drive
 drive.mount('/content/drive')
 
 """
-Title: Deep Q-Learning for Atari Breakout
-Author: [Jacob Chapman](https://twitter.com/jacoblchapman) and [Mathias Lechner](https://twitter.com/MLech20)
-Date created: 2020/05/23
-Last modified: 2020/06/17
-Description: Play Atari Breakout with a Deep Q-Network.
-"""
-"""
-## Introduction
-
-This script shows an implementation of Deep Q-Learning on the
-`BreakoutNoFrameskip-v4` environment.
-
-### Deep Q-Learning
-
-As an agent takes actions and moves through an environment, it learns to map
-the observed state of the environment to an action. An agent will choose an action
-in a given state based on a "Q-value", which is a weighted reward based on the
-expected highest long-term reward. A Q-Learning Agent learns to perform its
-task such that the recommended action maximizes the potential future rewards.
-This method is considered an "Off-Policy" method,
-meaning its Q values are updated assuming that the best action was chosen, even
-if the best action was not chosen.
-
-### Atari Breakout
-
-In this environment, a board moves along the bottom of the screen returning a ball that
-will destroy blocks at the top of the screen.
-The aim of the game is to remove all blocks and breakout of the
-level. The agent must learn to control the board by moving left and right, returning the
-ball and removing all the blocks without the ball passing the board.
-
-### Note
-
-The Deepmind paper trained for "a total of 50 million frames (that is, around 38 days of
-game experience in total)". However this script will give good results at around 10
-million frames which are processed in less than 24 hours on a modern machine.
-
-### References
+References
 
 - [Q-Learning](https://link.springer.com/content/pdf/10.1007/BF00992698.pdf)
 - [Deep Q-Learning](https://deepmind.com/research/publications/human-level-control-through-deep-reinforcement-learning)
-"""
-"""
-## Setup
+- Deep Q-Learning for Atari Breakout by [Jacob Chapman](https://twitter.com/jacoblchapman) and [Mathias Lechner](https://twitter.com/MLech20)
 """
 
 from baselines.common.atari_wrappers import make_atari, wrap_deepmind
@@ -84,8 +45,6 @@ env = wrap_deepmind(env, frame_stack=True, scale=True)
 env.seed(seed)
 
 """
-## Implement the Deep Q-Network
-
 This network learns an approximation of the Q-table, which is a mapping between
 the states and actions that an agent will take. For every state we'll have four
 actions, that can be taken. The environment provides the state, and the action
