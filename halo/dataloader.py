@@ -67,7 +67,6 @@ class Dataset():
         return train_dataset, validation_dataset, test_dataset
 
     
-    @tf.function
     def __preprocess_image(self, image_path):
         # Read image files
         raw_image = tf.io.read_file(image_path)
