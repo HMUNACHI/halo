@@ -22,11 +22,11 @@ Finally, a TFLite version of the model which runs on edge devices, is packaged i
 # EXPERIMENTATION AND RESULTS
  A small experimental version with only 15m parameters was trained on the CelebA dataset to generate 128x128 images. Below are some synthetic samples, when adapted to various ethnicities. Below are some synthethic samples when adapted to various ethnicities.
 
-Generate more dataset of women's faces given only 66 samples.\
+Task: Generate more dataset of women's faces given only 66 samples.\
 Result:
 ![Alt text](/images/women.png "results")
 
-Generate more dataset of black people given 50 samples.\
+Task: Generate more dataset of black people given 50 samples.\
 Result:
 ![Alt text](/images/black_people.png "results")
 
