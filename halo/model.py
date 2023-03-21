@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 
 from keras import layers
 from tensorflow import keras
-from metrics import KID
-from generator import TransformerUNet
+from halo.metrics import KID
+from halo.generator import UNet
 
 
 class Halo(keras.Model):
@@ -29,8 +29,8 @@ class Halo(keras.Model):
         self.kid_image_size = kid_image_size
         self.ema = ema
         self.normalizer = layers.Normalization()
-        self.network = TransformerUNet(image_size, widths, block_depth).network
-        self.ema_network = TransformerUNet(image_size, widths, block_depth).network
+        self.network = UNet(image_size, widths, block_depth).network
+        self.ema_network = UNet(image_size, widths, block_depth).network
 
     def compile(self, **kwargs):
         super().compile(**kwargs)

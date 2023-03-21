@@ -1,2 +1,6 @@
-halo_env
 __pycache__
+halo_env
+data
+celeba
+checkpoints
+experimentation.ipynb

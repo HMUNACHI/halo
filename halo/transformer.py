@@ -8,17 +8,15 @@ class VisionTransformerBlock(keras.layers.Layer):
         Vision Transformer encoder block
         """
         self.norm1 = layers.LayerNormalization(epsilon=1e-5)
-        self.attn1 = layers.MultiHeadAttention(num_heads, head_size)
+        self.attention = layers.MultiHeadAttention(num_heads, head_size)
         self.norm2 = layers.LayerNormalization(epsilon=1e-5)
-        self.attn2 = layers.MultiHeadAttention(num_heads, head_size)
-        self.norm3 = layers.LayerNormalization(epsilon=1e-5)
         self.geglu = GEGLU(dim * 4)
         self.dense = keras.layers.Dense(dim)
 
     def call(self, inputs):
         normalized_inputs = self.norm1(inputs)
-        x = self.attn1(normalized_inputs, normalized_inputs) + inputs
-        return self.dense(self.geglu(self.norm3(x))) + x
+        x = self.attnention(normalized_inputs, normalized_inputs) + inputs
+        return self.dense(self.geglu(self.norm2(x))) + x
 
 
 class GEGLU(keras.layers.Layer):

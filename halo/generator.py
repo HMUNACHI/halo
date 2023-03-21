@@ -1,10 +1,10 @@
 from keras import layers
 from tensorflow import keras
-from resnet import ResidualBlock
-from embeddings import SinusoidalEmbedding
-from transformer import VisionTransformerBlock
+from halo.resnet import ResidualBlock
+from halo.embeddings import SinusoidalEmbedding
+from halo.transformer import VisionTransformerBlock
 
-class TransformerUNet():
+class UNet():
     def __init__(self, 
                  image_size, 
                  widths, 
@@ -35,7 +35,7 @@ class TransformerUNet():
         def apply(x):
             for _ in range(block_depth):
                 x = ResidualBlock(width)(x)
-                x = VisionTransformerBlock(width, num_heads=2, head_size=int(width/2))(x)
+                #x = VisionTransformerBlock(width, num_heads=2, head_size=int(width/2))(x)
                 self.skips.append(x)
             x = layers.AveragePooling2D(pool_size=2)(x)
             return x
@@ -48,7 +48,7 @@ class TransformerUNet():
             for _ in range(block_depth):
                 x = layers.Concatenate()([x, self.skips.pop()])
                 x = ResidualBlock(width)(x)
-                x = VisionTransformerBlock(width, num_heads=2, head_size=int(width/2))(x)
+                #x = VisionTransformerBlock(width, num_heads=2, head_size=int(width/2))(x)
             return x
         return apply
 

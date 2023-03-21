@@ -1,8 +1,11 @@
+import os
 import tensorflow as tf
+import matplotlib.pyplot as plt
 
-from model import Halo
+from halo.model import Halo
 from tensorflow import keras
-from dataloader import Dataset
+from halo.dataloader import Dataset
+
 
 def tune(
         data_directory, 
@@ -48,9 +51,10 @@ def tune(
     model.compile(optimizer=keras.optimizers.experimental.AdamW(learning_rate=learning_rate,weight_decay=weight_decay),
                   loss=keras.losses.mean_absolute_error)
     
-    weights_path = ""
-    model.load_weights(weights_path)
+    model.load_weights("checkpoints/image_generator")
     model.normalizer.adapt(dataset.train)
+
+    
     sampling_callback = keras.callbacks.LambdaCallback(on_epoch_end=model.plot_images)
 
     checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
@@ -70,3 +74,17 @@ def tune(
     print("Halo successfully tuned on your dataset")
     print("Here are some samples")
     return model
+
+
+def generate(model, n_samples, path, extension=".jpg"):
+    print("generating samples")
+
+    images = model.generate_images(n_samples)
+    print(images.shape)
+    for file, image in enumerate(images):
+        plt.imsave(path+"/"+str(file)+extension, image)
+        print(image)
+
+    print("done!")
+
+    return

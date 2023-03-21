@@ -1,6 +1,5 @@
 import pathlib
 import tensorflow as tf
-from functools import partial
 
 
 class Dataset():

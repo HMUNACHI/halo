@@ -1,5 +1,5 @@
-from halo import model, tuner
+from halo.tuner import tune, generate
 
-data_directory = ""
-checkpoint_path = ""
-model = tuner.tune(data_directory, checkpoint_path)
+
+model = tune("celeba", "tests")
+generate(model=model, n_samples=2, path="my_path", extension=".jpg")
