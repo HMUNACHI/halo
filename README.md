@@ -11,16 +11,16 @@ ndubuakuhenry@gmail.com\
 Every machine learning project has to first overcome the issue of dataset availability. This however requires a lot of expertise to navigate. For classification and image understanding problems, augmentation techniques like flipping, cropping, etc. For supervised learning tasks, annotation tools like GCP Labelling Services and AWS Mechanical Turks come in handy. Albeit, for simply generating more images, it gets more technical.
 
 # APPROACH
-Halo uses diffusion which yields exceptionally crisp images (). Vision Transformer blocks are then sandwitched between each residual block for scaling the parameters. This model is then pre-trained on a large collection of image dataset. 
+Halo uses diffusion which yields exceptionally crisp images. Vision Transformer blocks are then sandwiched between each residual block for scaling the parameters. This model is then pre-trained on a large collection of images. 
 
-The resulting model's weights are then clustered to reduce the number of parameters and the models size. Clustering, or weight sharing, reduces the number of unique weight values in a model, leading to benefits for deployment. It first groups the weights of each layer into N clusters, then shares the cluster's centroid value for all the weights belonging to the cluster. The model is fine-tuned for a few epochs.
 
-Next, the parameters of are quantized which involves reducing the precision of the weights, biases, and activations such that they consume less memory. The model is one again fine-tuned for a few epochs.
+The resulting model's weights are then clustered to reduce the number of parameters and the model's size. Clustering, or weight sharing, reduces the number of unique weight values in a model, leading to benefits for deployment. It first groups the weights of each layer into N clusters, then shares the cluster's centroid value for all the weights belonging to the cluster. The model is fine-tuned for a few epochs.
 
-Finally, a TFLite version of the model which runs on edge devices, is packaged into a library.
+
+Next, the parameters are quantized which involves reducing the precision of the weights, biases, and activations such that they consume less memory. The model is once again fine-tuned for a few epochs.
 
 # EXPERIMENTATION AND RESULTS
- A small experimental version with only 15m parameters was trained on the CelebA dataset to generate 128x128 images. Below are some synthetic samples, when adapted to various ethnicities. Below are some synthethic samples when adapted to various ethnicities.
+ A small experimental version with only 15m parameters was trained on the CelebA dataset to generate 128x128 images. Below are some of its results.
 
 Generate more dataset of women's faces given only 66 samples.\
 Result:
