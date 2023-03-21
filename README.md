@@ -4,7 +4,7 @@
 
 # AUTHORS
 Henry Ndubuaku\
-ndubuakuhenry@gmail.com
+ndubuakuhenry@gmail.com\
 [Linkedin](https://www.linkedin.com/in/henry-ndubuaku-7b6350b8/)
 
 # BACKGROUND
