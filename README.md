@@ -20,15 +20,15 @@ Next, the parameters of are quantized which involves reducing the precision of t
 Finally, a TFLite version of the model which runs on edge devices, is packaged into a library.
 
 # EXPERIMENTATION AND RESULTS
- A small experimental version with only 15m parameters was trained on the CelebA dataset to generate 128x128 images. Below are some synthetic samples, when adapted to various ethnicities. Below are some synthethic samples when adapted to various ethnicities.\
+ A small experimental version with only 15m parameters was trained on the CelebA dataset to generate 128x128 images. Below are some synthetic samples, when adapted to various ethnicities. Below are some synthethic samples when adapted to various ethnicities.
 
-Generate more dataset of women's faces given 66 samples.\
-Result:\
-![Alt text](/images/women.png "results")\
+Generate more dataset of women's faces given only 66 samples.\
+Result:
+![Alt text](/images/women.png "results")
 
 Generate more dataset of black people given 50 samples.\
-Result:\
-![Alt text](/images/black_people.png "results")\
+Result:
+![Alt text](/images/black_people.png "results")
 
 When trained at scale on diverse and higher definition images, granular results like speed increments, size reduction, and metrics will be carefully studied and analysed.
 
