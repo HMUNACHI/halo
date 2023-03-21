@@ -1,4 +1,3 @@
-import os
 import tensorflow as tf
 import matplotlib.pyplot as plt
 
@@ -10,8 +9,7 @@ from halo.dataloader import Dataset
 def tune(
         data_directory, 
         checkpoint_path,
-        epochs=1, 
-        image_size=256, 
+        epochs=10,
         repetition=1, 
         validation_split=0.1, 
         test_split=0.2,
@@ -23,6 +21,15 @@ def tune(
         ema = 0.999
         ):
     
+    # Kernel Inception Distance
+    image_size=128
+    kid_image_size = 75
+    kid_diffusion_steps = 5
+
+    # optimization
+    learning_rate = 1e-3
+    weight_decay = 1e-4
+
     # Load dataset
     dataset = Dataset(data_directory, 
                       image_size, 
@@ -31,14 +38,7 @@ def tune(
                       validation_split, 
                       test_split)
     
-    # Kernel Inception Distance
-    kid_image_size = 75
-    kid_diffusion_steps = 5
-
-    # optimization
-    learning_rate = 1e-3
-    weight_decay = 1e-4
-
+    # Load model
     model = Halo(image_size, 
                  widths, 
                  block_depth,
@@ -49,12 +49,12 @@ def tune(
                  ema)
     
     model.compile(optimizer=keras.optimizers.experimental.AdamW(learning_rate=learning_rate,weight_decay=weight_decay),
-                  loss=keras.losses.mean_absolute_error)
+                  loss=keras.losses.mean_absolute_error,
+                  run_eagerly=True)
     
     model.load_weights("checkpoints/image_generator")
     model.normalizer.adapt(dataset.train)
-
-    
+    return model
     sampling_callback = keras.callbacks.LambdaCallback(on_epoch_end=model.plot_images)
 
     checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
@@ -78,13 +78,8 @@ def tune(
 
 def generate(model, n_samples, path, extension=".jpg"):
     print("generating samples")
-
-    images = model.generate_images(n_samples)
-    print(images.shape)
+    images = model.sample(n_samples)
     for file, image in enumerate(images):
-        plt.imsave(path+"/"+str(file)+extension, image)
-        print(image)
-
+        tf.keras.utils.save_img(path+"/"+str(file)+extension, image)
     print("done!")
-
     return

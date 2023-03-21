@@ -26,7 +26,7 @@ class Dataset():
     def __load_image_dataset(self, data_directory):
         # Parse and load the images from directory
         image_paths = []
-        extensions = ('*/*.jpg', '*/*.jpeg', '*/*png')
+        extensions = ('*.jpg', '*.jpeg', '*png')
 
         for extension in extensions:
             paths = pathlib.Path(data_directory).glob(extension)

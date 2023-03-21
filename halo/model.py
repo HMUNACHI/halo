@@ -136,16 +136,16 @@ class Halo(keras.Model):
         generated_images = self.generate(self.inference_diffusion_steps, noises)
         self.kid.update_state(images, generated_images)
         return {m.name: m.result() for m in self.metrics}
+    
 
-
-    def generate_images(self, num_images=1, steps=20):
+    def sample(self, num_images=1, steps=20):
         noises = tf.random.normal(shape=(num_images, self.image_size, self.image_size, 3))
         generated_images = self.generate(steps, noises)
         return generated_images
     
 
-    def plot_images(self, epoch=None, logs=None, num_rows=2, num_cols=8, steps=20):
-        generated_images = self.generate_images(num_rows*num_cols, steps)
+    def plot_images(self, epoch=None, logs=None, num_rows=2, num_cols=2, steps=20):
+        generated_images = self.sample(num_rows*num_cols, steps)
         plt.figure(figsize=(num_cols * 2.0, num_rows * 2.0))
 
         for row in range(num_rows):

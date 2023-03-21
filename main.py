@@ -1,5 +1,5 @@
 from halo.tuner import tune, generate
 
 
-model = tune("celeba", "tests")
-generate(model=model, n_samples=2, path="my_path", extension=".jpg")
+model = tune(data_directory="celeba", checkpoint_path="halo_weights")
+generate(model=model, n_samples=2, path="tests", extension=".jpg")
