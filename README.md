@@ -8,7 +8,7 @@ ndubuakuhenry@gmail.com\
 [Linkedin](https://www.linkedin.com/in/henry-ndubuaku-7b6350b8/)
 
 # BACKGROUND
-Every machine learning project have to first overcome the issue of dataset availability. This however require a lot of expertise to navigate. For classification and image understanding problems, augmentation techniques like flipping, cropping, etc. For supervised learning tasks, annotation tools like GCP Labelling Services and AWS Mechanical Turks come in handy. Albeit, for simply generating more images, it gets more technical. 
+Every machine learning project has to first overcome the issue of dataset availability. This however requires a lot of expertise to navigate. For classification and image understanding problems, augmentation techniques like flipping, cropping, etc. For supervised learning tasks, annotation tools like GCP Labelling Services and AWS Mechanical Turks come in handy. Albeit, for simply generating more images, it gets more technical.
 
 # APPROACH
 Halo uses diffusion which yields exceptionally crisp images (). Vision Transformer blocks are then sandwitched between each residual block for scaling the parameters. This model is then pre-trained on a large collection of image dataset. 
@@ -20,17 +20,21 @@ Next, the parameters of are quantized which involves reducing the precision of t
 Finally, a TFLite version of the model which runs on edge devices, is packaged into a library.
 
 # EXPERIMENTATION AND RESULTS
-A small version model with only 15m parameters was trained on CelebA. Below are some synthethic samples, when adapted to various ethnicities.
+ A small experimental version with only 15m parameters was trained on the CelebA dataset to generate 128x128 images. Below are some synthetic samples, when adapted to various ethnicities. Below are some synthethic samples when adapted to various ethnicities.\
 
-![Alt text](/images/asian.png "results")
-![Alt text](/images/blacks.png "results")
-![Alt text](/images/blonde.png "results")
+Generate more dataset of women's faces given 66 samples.\
+Result:\
+![Alt text](/images/women.png "results")\
 
-When trained at scale for every kind of image, granular results like speed increments, size reduction, and metrics will be carefully studied and analysed.
+Generate more dataset of black people given 50 samples.\
+Result:\
+![Alt text](/images/black_people.png "results")\
 
-# USAGE (BETA)
-1. This requires "tensorflow-GPU>=2.11.0" and "tensorflow_model_optimization" for now.
-2. Download the model weights [here](https://drive.google.com/drive/folders/18MzoJbm9qSmGaE1-pwPnwqd85LvXJKve?usp=sharing)
+When trained at scale on diverse and higher definition images, granular results like speed increments, size reduction, and metrics will be carefully studied and analysed.
+
+# USAGE (ALPHA STAGE EXPERIMENTATION)
+1. This requires "tensorflow-GPU>=2.11.0", "tensorflow_model_optimization" and matplotlibfor now.
+2. Download the model weights [here](https://drive.google.com/drive/folders/1nEx93_FcCISzX-ZFN35RImErZukz33Vi?usp=sharing)
 3. Place inside the parent HALO folder.
 4. Adapt to your dataset and generate more samples with the code below.
 ```
