@@ -22,11 +22,11 @@ Next, the parameters are quantized which involves reducing the precision of the 
 # EXPERIMENTATION AND RESULTS
  A small experimental version with only 15m parameters was trained on the CelebA dataset to generate 128x128 images. Below are some of its results.
 
-Generate more dataset of women's faces given only 66 samples.\
+Task: Generate more dataset of women's faces given only 66 samples.\
 Result:
 ![Alt text](/images/women.png "results")
 
-Generate more dataset of black people given 50 samples.\
+Task: Generate more dataset of black people given 50 samples.\
 Result:
 ![Alt text](/images/black_people.png "results")
 
