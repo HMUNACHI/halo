@@ -5,6 +5,7 @@
 # AUTHORS
 Henry Ndubuaku\
 ndubuakuhenry@gmail.com
+[Linkedin](https://www.linkedin.com/in/henry-ndubuaku-7b6350b8/)
 
 # BACKGROUND
 Every machine learning project have to first overcome the issue of dataset availability. This however require a lot of expertise to navigate. For classification and image understanding problems, augmentation techniques like flipping, cropping, etc. For supervised learning tasks, annotation tools like GCP Labelling Services and AWS Mechanical Turks come in handy. Albeit, for simply generating more images, it gets more technical. 
