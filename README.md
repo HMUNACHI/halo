@@ -1,6 +1,6 @@
 
 ![Alt text](/images/logo.png "Halo Diagram")
-# A Python Library That Uses Quantized Diffusion Model With Clustered Weights For Efficiently Generating More Image Datasets On-Device.
+# Using Quantized Diffusion Model With Clustered Weights For Efficiently Generating More Image Datasets On-Device.
 
 # AUTHORS
 Henry Ndubuaku\
