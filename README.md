@@ -1,4 +1,4 @@
-# Halo: A diffusion model for generating crisp image dataset.
+# Halo: A Library That Uses Quantized Diffusion Model With Clustered Weights For Efficiently Generating More Image Datasets On-Device.
 
 ![Alt text](/images/logo.png "Halo Diagram")
 
@@ -7,14 +7,14 @@ Henry Ndubuaku\
 ndubuakuhenry@gmail.com
 
 # BACKGROUND
-Every machine learning project have to first overcome the issue of dataset availability. This however require a lot of expertise to navigate. For classification and image understanding problems, augmentation techniques like flipping, cropping, etc. works(). For supervised learning tasks, annotation tools like GCP Labelling Services and AWS Mechanical Turks come in handy. Albeit, for simply generating more images, it gets more technical. 
+Every machine learning project have to first overcome the issue of dataset availability. This however require a lot of expertise to navigate. For classification and image understanding problems, augmentation techniques like flipping, cropping, etc. For supervised learning tasks, annotation tools like GCP Labelling Services and AWS Mechanical Turks come in handy. Albeit, for simply generating more images, it gets more technical. 
 
 # APPROACH
 Halo uses diffusion which yields exceptionally crisp images (). Vision Transformer blocks are then sandwitched between each residual block for scaling the parameters. This model is then pre-trained on a large collection of image dataset. 
 
-The resulting model's weights are then clustered to reduce the number of parameters and the models size. Clustering, or weight sharing, reduces the number of unique weight values in a model, leading to benefits for deployment. It first groups the weights of each layer into N clusters, then shares the cluster's centroid value for all the weights belonging to the cluster (). The model is fine-tuned for a few epochs.
+The resulting model's weights are then clustered to reduce the number of parameters and the models size. Clustering, or weight sharing, reduces the number of unique weight values in a model, leading to benefits for deployment. It first groups the weights of each layer into N clusters, then shares the cluster's centroid value for all the weights belonging to the cluster. The model is fine-tuned for a few epochs.
 
-Next, the parameters of are quantized which involves reducing the precision of the weights, biases, and activations such that they consume less memory (). The model is one again fine-tuned for a few epochs.
+Next, the parameters of are quantized which involves reducing the precision of the weights, biases, and activations such that they consume less memory. The model is one again fine-tuned for a few epochs.
 
 Finally, a TFLite version of the model which runs on edge devices, is packaged into a library.
 
@@ -40,13 +40,10 @@ When trained at scale for every kind of image, granular results like speed incre
 ```
 
 # HOW TO HELP
-The code for quantizing and clustering the weights of the model is actively being tested and modified. On completion, the model will be scaled and pre-trained on massive dataset, as well as thouroughly tested. Afterwards, it will miniaturized and converted to a TFLite version. A CLI would be developed and the whole package deployed to PyPI. Contribution to any of these will be highly beneficial.
+The code for quantizing and clustering the weights of the model is actively being tested and modified. On completion, the model will be scaled and pre-trained on massive dataset, as well as thouroughly tested. Afterwards, it will miniaturized and converted to a TFLite version. A CLI would be developed and the whole package deployed to PyPI. Contribution to any of these will be highly beneficial. Please send the author an email.
 
 # END GOAL
 ML practitioners will simply install the library with "pip install halo", adapt to their dataset in a script with "halo.tuner.tune()", then generate samples with "halo.generate()". They can also use via command line with "halo path_to_dataset path_to_output".
 
 # SPONSORSHIP 
 This authour works full-time and the cost of massively training halo would be expensive. Funds recieved will be reserved for computing expenses. Excess funds would get the author onboard full-time. Even more funding would get more hands on deck.
-
-# REFERENCES
-1. Wu X, Zhang T, Zang L, et al. “Mask and infill”: Applying masked language model to sentiment transfer. ArXiv: 1908.08039. https://arxiv.org/abs/1908.08039
