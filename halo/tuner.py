@@ -54,7 +54,7 @@ def tune(
     
     model.load_weights("checkpoints/image_generator")
     model.normalizer.adapt(dataset.train)
-    return model
+    
     sampling_callback = keras.callbacks.LambdaCallback(on_epoch_end=model.plot_images)
 
     checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
