@@ -8,7 +8,7 @@ ndubuakuhenry@gmail.com\
 [Linkedin](https://www.linkedin.com/in/henry-ndubuaku-7b6350b8/)
 
 # BACKGROUND
-Every machine learning project has to first overcome the issue of dataset availability. This however requires a lot of expertise to navigate. For classification and image understanding problems, augmentation techniques like flipping, cropping, etc. For supervised learning tasks, annotation tools like GCP Labelling Services and AWS Mechanical Turks come in handy. Albeit, for simply generating more images, it gets more technical.
+Every machine learning project has to first overcome the issue of dataset availability. For classification and image understanding problems, augmentation techniques like flipping, cropping, etc works. For supervised learning tasks, annotation tools like GCP Labelling Services and AWS Mechanical Turks come in handy. Albeit, for simply generating more images, it gets more technical.
 
 # APPROACH
 Halo uses diffusion which yields exceptionally crisp images. Vision Transformer blocks are then sandwiched between each residual block for scaling the parameters. This model is then pre-trained on a large collection of images. 
