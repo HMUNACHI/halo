@@ -51,4 +51,4 @@ The code for quantizing and clustering the weights of the model is actively bein
 ML practitioners will simply install the library with "pip install halo", adapt to their dataset in a script with "halo.tuner.tune()", then generate samples with "halo.generate()". They can also use via command line with "halo path_to_dataset path_to_output".
 
 # SPONSORSHIP 
-This authour works full-time and the cost of massively training halo would be expensive. Funds recieved will be reserved for computing expenses. Excess funds would get the author onboard full-time. Even more funding would get more hands on deck.
+This authour works full-time and the cost of massively training halo would be expensive. Funds recieved will be reserved for computing expenses. Even more funding would get more hands on deck.
